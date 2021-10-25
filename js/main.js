@@ -61,7 +61,7 @@ function lowerWeightBike(objectArray, objNameKey, objWeightKey) {
 
 console.log(lowerWeightBike(biciDaCorsa, nameKey, weightKey));
 
-
+console.log('---------------------------');
 /*
 * Snack2
 * Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
@@ -70,3 +70,72 @@ console.log(lowerWeightBike(biciDaCorsa, nameKey, weightKey));
 * Punti fatti e falli subiti.
 * Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 */
+
+let points = 0;
+let sufferedFouls = 0;
+let nome;
+
+const squadreCalcio = [
+  {
+    nome: 'Milan',
+    points,
+    sufferedFouls
+  },
+  {
+    nome: 'Inter',
+    points,
+    sufferedFouls
+  },
+  {
+    nome: 'Genoa',
+    points,
+    sufferedFouls
+  },
+  {
+    nome: 'Sampdoria',
+    points,
+    sufferedFouls
+  },
+  {
+    nome: 'Juventus',
+    points,
+    sufferedFouls
+  },
+];
+console.log(squadreCalcio);
+
+for (let i = 0; i < squadreCalcio.length; i++) {
+  const element = squadreCalcio[i];
+  element['points'] = randomNumber(0, 20);
+  element['sufferedFouls'] = randomNumber(0, 5);
+}
+
+console.log(nameFoulsarray(squadreCalcio, 'nome', 'sufferedFouls'));
+
+
+
+function nameFoulsarray(objectArray, nameKey, foulsKey) {
+  
+  const newArray = [];
+  
+  for (let i = 0; i < objectArray.length; i++) {
+    const element = objectArray[i];
+    
+    let name = nameKey;
+    let fouls = foulsKey;
+
+    newArray.push({
+      [name]: element[nameKey],
+      [fouls]: element[foulsKey]
+    })
+  }
+
+  return newArray;
+}
+
+function randomNumber(minNumber, maxNumber) {
+  
+  const randomNum = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+  return randomNum;
+
+};
